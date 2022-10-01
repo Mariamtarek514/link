@@ -34,7 +34,7 @@ ul li {
 a {
     font-weight: bold;
     text-decoration: none;
-    color: var(--mainTextColor);
+    color: var(--gradient-1);
 }
 h1,
 h2,
@@ -50,15 +50,18 @@ h1 {
 }
 nav a,
 nav i.nav-link a {
-    color: var(--mainTextColor);
+    color: var(--gradient-1);
+    cursor: pointer;
 }
+
 nav a:hover,
 nav i.nav-link a:hover {
-    color: var(--mainTextColor);
+    color: var(--gradient-1);
 }
 
 .nav-item a {
     color: var(--mainTextColor);
+    cursor: pointer;
 }
 .nav-item a:hover {
     color: var(--mainTextColor);
@@ -95,7 +98,8 @@ nav i.nav-link a:hover {
     }
 }
 %gradient-text {
-    background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+    background: linear-gradient(var(--gradient-1), var(--gradient-2));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
