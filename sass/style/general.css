@@ -116,6 +116,7 @@ nav i.nav-link a:hover {
 /* SCROLL BAR */
 ::-webkit-scrollbar {
   width: 0.5rem;
+  height: 0.5rem;
   border-radius: 0.5rem;
   background-color: var(--mainBgColor);
   -webkit-border-radius: 0.5rem;
@@ -130,6 +131,9 @@ nav i.nav-link a:hover {
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
 }
 
 .favorite .saved__information-categroy, .favorite .saved h3, .profile__rate h3, .sideBarParent .sideBar .btn-toggle[aria-expanded=true] i, .sideBarParent .sideBar a:hover, .articleContainer .article__bottom > h5 span, .articleContainer .article__bottom > h5, .articleContainer h2 {
@@ -752,7 +756,7 @@ p {
   color: var(--light-gray);
 }
 .profile__point {
-  min-height: 37vh;
+  min-height: 32vh;
 }
 .profile__point-container {
   justify-content: space-evenly;
@@ -941,6 +945,7 @@ p {
   .profile {
     width: 100%;
     left: 0;
+    padding-bottom: 80px !important;
   }
   .profile__pic {
     width: 120px;
@@ -957,9 +962,7 @@ p {
     display: none;
   }
   .sidebar {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
+    height: 74px;
     background: var(--secondaryBgColor);
     transform: unset;
     top: unset;
