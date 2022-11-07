@@ -1,7 +1,7 @@
 let sidebar = document.querySelector(".sidebar");
 
 function toggleSidebar() {
-    console.log("cl");
+  
     sidebar.classList.toggle("close");
 }
 let list = document.querySelectorAll(".sidebar__list li"),
