@@ -7,13 +7,21 @@
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
-    .welcomeMessage {
+    &_heading {
+        figure {
+            img {
+                width: 130px;
+                border-radius: 50%;
+            }
+        }
         h2 {
             color: var(--gradient-1);
             letter-spacing: 1px;
         }
         p {
             color: var(--light-gray);
+            width: 500px;
+            max-width: 100%;
         }
     }
 

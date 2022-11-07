@@ -14,6 +14,7 @@
   --rate: #ebe8e8;
   --text-color: #222;
   --transperentMainBgColor: #ffffffa1;
+  --borderColor: #dfdfdf;
 }
 
 .dark-theme {
@@ -26,6 +27,7 @@
   --rate: #3c3a3a;
   --text-color: #fff;
   --transperentMainBgColor: #18191a4d;
+  --borderColor: #444141;
 }
 
 *,
@@ -116,7 +118,6 @@ nav i.nav-link a:hover {
 /* SCROLL BAR */
 ::-webkit-scrollbar {
   width: 0.5rem;
-  height: 0.5rem;
   border-radius: 0.5rem;
   background-color: var(--mainBgColor);
   -webkit-border-radius: 0.5rem;
@@ -132,9 +133,6 @@ nav i.nav-link a:hover {
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
 }
-::-webkit-scrollbar-thumb:horizontal {
-  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
-}
 
 .favorite .saved__information-categroy, .favorite .saved h3, .profile__rate h3, .sideBarParent .sideBar .btn-toggle[aria-expanded=true] i, .sideBarParent .sideBar a:hover, .articleContainer .article__bottom > h5 span, .articleContainer .article__bottom > h5, .articleContainer h2 {
   background: linear-gradient(var(--gradient-1), var(--gradient-2));
@@ -143,7 +141,13 @@ nav i.nav-link a:hover {
   -webkit-text-fill-color: transparent;
 }
 
-input:focus {
+.btn-outline-success {
+  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+}
+
+input:focus,
+textarea:focus,
+select:focus {
   box-shadow: none !important;
 }
 
@@ -152,7 +156,6 @@ p {
 }
 
 .btn-outline-success {
-  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
   color: #fff;
   border: none;
   outline: none;
@@ -162,6 +165,8 @@ p {
   border: none;
   outline: none;
   background-color: transparent;
+  right: 12px;
+  top: 18px;
 }
 .change-theme-button i {
   color: var(--mainTextColor);
@@ -214,6 +219,14 @@ p {
 }
 .articleContainer .article__description {
   color: var(--light-gray);
+}
+.articleContainer .article__favorite i {
+  color: var(--light-gray);
+  cursor: pointer;
+  font-size: 18px;
+}
+.articleContainer .article__favorite i.red_heart {
+  color: #d73125;
 }
 .articleContainer .article__bottom > h5 {
   font-weight: 600;
@@ -306,6 +319,74 @@ p {
 }
 
 /* end top artice*/
+.newArticle {
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7098039216);
+  z-index: 2000;
+  transition: 0.5s;
+}
+.newArticle.active {
+  display: block;
+}
+.newArticle .newArticle-form {
+  z-index: 2001;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 100%;
+  background-color: var(--secondaryBgColor);
+  padding: 4rem 1rem;
+  border-radius: 7px;
+}
+.newArticle .newArticle-form .close-pop {
+  background-color: #dc3545;
+  color: #fff;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px 4px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.newArticle .newArticle-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.newArticle .newArticle-form .form-group textarea {
+  resize: none;
+}
+.newArticle .newArticle-form label {
+  color: var(--gradient-1);
+  font-size: 18px;
+  font-weight: 500;
+}
+.newArticle .newArticle-form input,
+.newArticle .newArticle-form textarea,
+.newArticle .newArticle-form select {
+  background: var(--mainBgColor);
+  border: 1px solid var(--borderColor);
+  color: var(--text-color);
+}
+.newArticle .newArticle-form-submit {
+  text-align: center;
+  margin-top: 20px;
+}
+.newArticle .newArticle-form .newArticleBtn {
+  background-color: var(--gradient-1);
+  color: #fff;
+}
+
 .navbar {
   background-color: var(--mainBgColor);
   width: 100%;
@@ -315,23 +396,61 @@ p {
   -moz-transition: background 0.3s;
   -ms-transition: background 0.3s;
   -o-transition: background 0.3s;
+  position: relative;
+}
+.navbar::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+}
+.navbar-toggler {
+  line-height: unset;
 }
 .navbar .signIn {
   color: var(--gradient-2);
+}
+.navbar .addArticle {
+  font-weight: 400;
+  color: var(--gradient-2);
+}
+.navbar .addArticle:hover {
+  color: var(--gradient-2);
+}
+.navbar .dropdown-toggle {
+  color: var(--gradient-2);
+}
+.navbar .dropdown-toggle:hover {
+  color: var(--gradient-2);
+}
+.navbar .dropdown-menu {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  background-color: var(--secondaryBgColor);
+  top: 45px;
+  border: none;
+}
+.navbar .dropdown-menu li a {
+  color: var(--secondaryTextColor);
+}
+.navbar .dropdown-menu li a:hover {
+  color: var(--light-gray);
+  background-color: transparent !important;
+}
+.navbar .dropdown-item {
+  margin-bottom: 0.5rem;
 }
 
 .profle__nav {
   z-index: 300;
   width: 100%;
   position: relative;
-}
-.profle__nav::before {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
 }
 .profle__nav .profile-information .profile-img {
   width: 35px;
@@ -748,12 +867,18 @@ p {
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
 }
-.profile .welcomeMessage h2 {
+.profile_heading figure img {
+  width: 130px;
+  border-radius: 50%;
+}
+.profile_heading h2 {
   color: var(--gradient-1);
   letter-spacing: 1px;
 }
-.profile .welcomeMessage p {
+.profile_heading p {
   color: var(--light-gray);
+  width: 500px;
+  max-width: 100%;
 }
 .profile__point {
   min-height: 32vh;
@@ -945,7 +1070,7 @@ p {
   .profile {
     width: 100%;
     left: 0;
-    padding-bottom: 80px !important;
+    padding-bottom: 90px !important;
   }
   .profile__pic {
     width: 120px;
@@ -968,7 +1093,7 @@ p {
     top: unset;
     bottom: 0;
     left: 50%;
-    width: 300px;
+    width: 95%;
     max-width: 100%;
     transform: translatex(-50%);
     -webkit-transform: translatex(-50%);
