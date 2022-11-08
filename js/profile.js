@@ -1,7 +1,7 @@
 let sidebar = document.querySelector(".sidebar");
 
 function toggleSidebar() {
-  
+    console.log("cl");
     sidebar.classList.toggle("close");
 }
 let list = document.querySelectorAll(".sidebar__list li"),
@@ -28,3 +28,20 @@ list.forEach((e) => {
         });
     });
 });
+
+// file upload 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#imageUpload").change(function() {
+    readURL(this);
+});
+// 

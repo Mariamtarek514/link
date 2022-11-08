@@ -115,8 +115,6 @@
             li {
                 height: 50px;
 
-                margin-right: 1rem;
-
                 a {
                     span {
                         display: none;
@@ -151,9 +149,6 @@
                 background-color: transparent;
                 i {
                     width: 50px;
-                }
-                &:hover {
-                    background-color: var(--mainBgColor);
                 }
             }
         }
