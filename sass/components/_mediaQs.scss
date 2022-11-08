@@ -159,6 +159,11 @@
         }
     }
 }
+@media screen and (max-width: 500px) {
+    .newArticle-form {
+        overflow-y: auto;
+    }
+}
 @media (min-width: 351px) and (max-width: 520px) {
     .search {
         h1 {
