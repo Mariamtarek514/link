@@ -6,30 +6,30 @@ toggleDashbord.addEventListener("click", () => {
 });
 // favorite article button
 
-let favoriteButton = document.querySelectorAll(".addToFavorite"),
-    favoriteIcon = localStorage.getItem("favorite");
-Cookies.set("favorite", "false");
-const addToFavourite = (icon) => {
-    Cookies.set("favorite", "true");
-    localStorage.setItem("favoriteIcon", "enable");
-    icon.classList.remove("fal");
-    icon.classList.add("fas", "fa-heart", "red_heart");
-};
-const removeFavorite = (icon) => {
-    Cookies.set("favorite", "false");
-    localStorage.setItem("favoriteIcon", null);
-    icon.classList.remove("fas", "fa-heart", "red_heart");
-    icon.classList.add("fal", "fa-heart");
-};
-favoriteButton.forEach((icon) => {
-    icon.addEventListener("click", (clickedIcon) => {
-        if (clickedIcon.target.classList.contains("fas")) {
-            removeFavorite(clickedIcon.target);
-        } else {
-            addToFavourite(clickedIcon.target);
-        }
-    });
-});
+// let favoriteButton = document.querySelectorAll(".addToFavorite"),
+//     favoriteIcon = localStorage.getItem("favorite");
+// Cookies.set("favorite", "false");
+// const addToFavourite = (icon) => {
+//     Cookies.set("favorite", "true");
+//     localStorage.setItem("favoriteIcon", "enable");
+//     icon.classList.remove("fal");
+//     icon.classList.add("fas", "fa-heart", "red_heart");
+// };
+// const removeFavorite = (icon) => {
+//     Cookies.set("favorite", "false");
+//     localStorage.setItem("favoriteIcon", null);
+//     icon.classList.remove("fas", "fa-heart", "red_heart");
+//     icon.classList.add("fal", "fa-heart");
+// };
+// favoriteButton.forEach((icon) => {
+//     icon.addEventListener("click", (clickedIcon) => {
+//         if (clickedIcon.target.classList.contains("fas")) {
+//             removeFavorite(clickedIcon.target);
+//         } else {
+//             addToFavourite(clickedIcon.target);
+//         }
+//     });
+// });
 // Dark theme
 const themeButton = document.querySelector(".change-theme"),
     darkMode = localStorage.getItem("darkMode"),
