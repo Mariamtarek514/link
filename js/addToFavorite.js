@@ -38,7 +38,6 @@ let clicked = (id) => {
                 element.state = 1;
             }
         });
-        localStorage.setItem("favorite", JSON.stringify(arr));
 
         document.getElementById(id).classList = "fas fa-heart red_heart";
     } else {
@@ -48,8 +47,8 @@ let clicked = (id) => {
                 element.state = 2;
             }
         });
-        localStorage.setItem("favorite", JSON.stringify(arr));
     }
+    localStorage.setItem("favorite", JSON.stringify(arr));
 };
 
 function loadData() {
